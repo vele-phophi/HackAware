@@ -1,0 +1,492 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #0d1117; /* dark background */
+  color: #e6edf3; /* light text */
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #161b22;
+  color: #00c6ff;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Navigation */
+nav ul {
+  list-style: none;
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #e6edf3;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ff3c7d;
+}
+
+/* Hero Section */
+.hero {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #161b22;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: #00c6ff;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+}
+
+.hero button {
+  padding: 12px 25px;
+  background-color: #00c6ff;
+  color: #0d1117;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero button:hover {
+  background-color: #ff3c7d;
+  color: #ffffff;
+}
+
+/* Features Section */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: #0d1117;
+}
+
+.feature-box {
+  background-color: #161b22;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px;
+  width: 280px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+.feature-box h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #00c6ff;
+}
+
+.feature-box p {
+  font-size: 1rem;
+}
+
+/* Footer */
+footer {
+  background-color: #161b22;
+  color: #e6edf3;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+}
+
+/* Tutorial Section */
+.tutorial {
+  background-color: #161b22;
+  border: 1px solid #00c6ff;
+  border-radius: 8px;
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+.tutorial h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #00c6ff;
+}
+
+.tutorial p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.tutorial button {
+  padding: 10px 20px;
+  background-color: #00c6ff;
+  color: #0d1117;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tutorial button:hover {
+  background-color: #ff3c7d;
+  color: #ffffff;
+}
+
+/* Lesson Section */
+.lesson {
+  background-color: #161b22;
+  border-left: 5px solid #00c6ff;
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.lesson h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #00c6ff;
+}
+
+.lesson p, .lesson ul {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.lesson ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* Question Section */
+.question {
+  background-color: #161b22;
+  border: 1px solid #00c6ff;
+  border-radius: 8px;
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.question h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #00c6ff;
+}
+
+.question label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.question input[type="radio"] {
+  transform: translateY(1px);
+}
+
+#result {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1.2rem;
+  color: #ff3c7d;
+}
+
+/* Chart Section */
+.chart-section {
+  background-color: #161b22;
+  border-radius: 8px;
+  margin: 30px auto;
+  padding: 20px;
+  width: 85%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+.chart-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #00c6ff;
+}
+
+.chart-section img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #00c6ff;
+  border-radius: 5px;
+}
+
+/* About Section */
+.about-section {
+  background-color: #161b22;
+  border-left: 5px solid #00c6ff;
+  margin: 30px auto;
+  padding: 20px;
+  width: 80%;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+.about-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #00c6ff;
+}
+
+.about-section p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Forms */
+form {
+  background-color: #161b22;
+  padding: 20px;
+  margin: 30px auto;
+  width: 80%;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+
+form label {
+  font-weight: bold;
+  color: #00c6ff;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #00c6ff;
+  border-radius: 5px;
+  background-color: #0d1117;
+  color: #e6edf3;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: #00c6ff;
+  color: #0d1117;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #ff3c7d;
+  color: #ffffff;
+}
+
+/* Answer Options */
+.answer-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.answer-option input[type="radio"] {
+  margin: 0;
+  transform: translateY(1px);
+}
+
+.answer-option span {
+  display: inline-block;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+  .feature-box {
+    width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-box {
+    width: 90%;
+  }
+
+  form, .lesson, .tutorial, .question, .about-section, .chart-section {
+    width: 95%;
+  }
+
+  header h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero h2 {
+    font-size: 1.4rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero button {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 20px 10px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  nav ul li {
+    margin: 8px 0;
+  }
+
+  .hero {
+    padding: 40px 15px;
+  }
+
+  .hero h2 {
+    font-size: 1.2rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .feature-box {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  form, .lesson, .tutorial, .question, .about-section, .chart-section {
+    width: 100%;
+    padding: 15px;
+  }
+
+  form button, .hero button, .tutorial button {
+    width: 100%;
+  }
+
+  footer {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+}
+
+/* Buttons - clean neon style without glow */
+button, .hero button, form button, .tutorial button {
+  background-color: #00c6ff;   /* neon cyan */
+  color: #0d1117;              /* dark text */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover, .hero button:hover, form button:hover, .tutorial button:hover {
+  background-color: #ff3c7d;   /* neon pink hover */
+  color: #ffffff;
+  transform: scale(1.03);      /* subtle zoom */
+}
+
+
+nav ul li a {
+  position: relative;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #00c6ff;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+section, .feature-box, .lesson, .tutorial, .question, .about-section, .chart-section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.4rem; }
+  h3 { font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.2rem; }
+  h3 { font-size: 1rem; }
+}
+
+

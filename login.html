@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | HackAware</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>🔐 Login to HackAware</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <form id="login-form" method="POST" action="login.php">
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password" required><br><br>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <div id="login-result"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 TechTitans | HackAware for Nemisa Hackathon</p>
+  </footer>
+
+  <script src="js/login.js"></script>
+</body>
+</html>
