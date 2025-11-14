@@ -4,7 +4,7 @@ session_start();
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-  header("Location: login.php");
+  header("Location:../php/login.php");
   exit;
 }
 
@@ -23,13 +23,13 @@ if (!isset($_SESSION['user_id'])) {
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="logout.php">Logout</a></li>
+        <li><a href="../php/logout.php">Logout</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <p>✅ You are logged in as <strong><?php echo $_SESSION['username']; ?></strong>.</p>
+    <p>You are logged in as <strong><?php echo $_SESSION['username']; ?></strong>.</p>
     <p>Ready to test your cybersecurity knowledge?</p>
     <a href="quiz.html"><button>Start Quiz</button></a>
 

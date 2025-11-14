@@ -1,40 +1,33 @@
 <?php
 session_start();
+include 'db_connect.php';
 
-include '../php/db_connect.php';
-$conn = new mysqli("localhost", "root", "", "hackaware");
-
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
+// Get form input
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$sql = "SELECT id, username, password_hash FROM users WHERE email = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("s", $email);
-$stmt->execute();
-$result = $stmt->get_result();
+// Query user by email (using pg_query_params for safety)
+$query = "SELECT * FROM users WHERE email = $1";
+$result = pg_query_params($conn, $query, array($email));
 
-if ($result->num_rows === 1) {
-  $user = $result->fetch_assoc();
-
-  if (password_verify($password, $user['password_hash'])) {
-    // ✅ Store session data
-    $_SESSION['user_id'] = $user['id'];
-    $_SESSION['username'] = $user['username'];
-
-    // ✅ Redirect to dashboard
-    header("Location: dashboard.php");
-    exit;
-  } else {
-    echo "❌ Incorrect password.";
-  }
-} else {
-  echo "❌ No account found with that email.";
+if (!$result) {
+    die("Query failed: " . pg_last_error());
 }
 
-$stmt->close();
-$conn->close();
+if (pg_num_rows($result) === 1) {
+    $user = pg_fetch_assoc($result);
+
+    // Verify password hash
+    if (password_verify($password, $user['password_hash'])) {
+        // ✅ Login success
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
+        header("Location: dashboard.php");
+        exit();
+    } else {
+        echo "❌ Incorrect password";
+    }
+} else {
+    echo "❌ No account found";
+}
 ?>

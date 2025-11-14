@@ -1,25 +1,30 @@
 <?php
-$conn = new mysqli("localhost", "root", "", "hackaware");
+include 'db_connect.php';
 
-include '../php/db_connect.php';
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-$email = $_POST['email'];
+// Get form input
+$username = $_POST['username'];
+$email    = $_POST['email'];
 $password = $_POST['password'];
-$hash = password_hash($password, PASSWORD_DEFAULT);
 
-$sql = "INSERT INTO users (email, password_hash) VALUES (?, ?)";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $email, $hash);
+// Hash the password
+$password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-if ($stmt->execute()) {
-  echo "✅ Registration successful!";
-} else {
-  echo "❌ Error: " . $stmt->error;
+// Check if email already exists
+$check_query = "SELECT id FROM users WHERE email = $1";
+$check_result = pg_query_params($conn, $check_query, array($email));
+
+if (pg_num_rows($check_result) > 0) {
+    echo "❌ Email already registered";
+    exit();
 }
 
-$stmt->close();
-$conn->close();
+// Insert new user
+$insert_query = "INSERT INTO users (username, email, password_hash, created_at) VALUES ($1, $2, $3, CURRENT_TIMESTAMP)";
+$insert_result = pg_query_params($conn, $insert_query, array($username, $email, $password_hash));
+
+if ($insert_result) {
+    echo "Registration successful. You can now log in.";
+} else {
+    echo "❌ Registration failed: " . pg_last_error($conn);
+}
 ?>
