@@ -489,4 +489,37 @@ h1, h2, h3 {
   h3 { font-size: 1rem; }
 }
 
+/* Make text and layout scale better on small screens */
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 16px; /* increase base font size */
+    padding: 10px;
+  }
+
+  header, nav, main, footer {
+    padding: 10px;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.5em;
+  }
+
+  nav a {
+    display: block;
+    margin: 8px 0;
+    font-size: 1.1em;
+  }
+
+  .section {
+    margin-bottom: 20px;
+  }
+
+  .grid {
+    display: block; /* stack sections vertically */
+  }
+
+  .grid > div {
+    margin-bottom: 20px;
+  }
+}
 

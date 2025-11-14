@@ -1,6 +1,7 @@
 <?php
 $conn = new mysqli("localhost", "root", "", "hackaware");
 
+include '../php/db_connect.php';
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
