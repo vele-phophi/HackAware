@@ -1,18 +1,21 @@
 # Use official PHP image with Apache
 FROM php:8.2-apache
 
-# Enable Apache rewrite module (optional but useful)
-RUN a2enmod rewrite
+# Install PostgreSQL extension
+RUN docker-php-ext-install pgsql
 
-# Install PostgreSQL support
-RUN apt-get update && apt-get install -y libpq-dev \
-    && docker-php-ext-install pgsql pdo_pgsql
-
-# Copy project files into Apache's web root
+# Copy your project files into the container
 COPY . /var/www/html/
 
 # Set working directory
 WORKDIR /var/www/html/
 
-# Expose port 80 for web traffic
-EXPOSE 80
+# Expose port 10000 for Render
+EXPOSE 10000
+
+# Update Apache to listen on port 10000
+RUN sed -i 's/Listen 80/Listen 10000/' /etc/apache2/ports.conf && \
+    sed -i 's/:80/:10000/' /etc/apache2/sites-enabled/000-default.conf
+
+# Start Apache in foreground
+CMD ["apache2ctl", "-D", "FOREGROUND"]
