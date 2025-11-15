@@ -1,8 +1,12 @@
 # Use official PHP image with Apache
 FROM php:8.2-apache
 
-# Enable mysqli and pdo_mysql extensions for MySQL support
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+# Enable Apache rewrite module (optional but useful)
+RUN a2enmod rewrite
+
+# Install PostgreSQL support
+RUN apt-get update && apt-get install -y libpq-dev \
+    && docker-php-ext-install pgsql pdo_pgsql
 
 # Copy project files into Apache's web root
 COPY . /var/www/html/
