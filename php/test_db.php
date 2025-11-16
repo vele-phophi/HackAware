@@ -1,8 +1,9 @@
 <?php
 include("db_connect.php");
 
-$result = pg_query($conn, "SELECT NOW()");
-$row = pg_fetch_row($result);
+$sql = "SELECT NOW() AS current_time";
+$result = mysqli_query($conn, $sql);
 
-echo "✅ Connected! Supabase time: " . $row[0];
+$row = mysqli_fetch_assoc($result);
+echo "✅ Connected! MySQL time: " . $row['current_time'];
 ?>

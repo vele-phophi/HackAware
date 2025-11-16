@@ -2,37 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Register | HackAware</title>
+  <title>Login | HackAware</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
-    <h1>📝 Create Your HackAware Account</h1>
+    <h1>🔐 Login to HackAware</h1>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="login.php">Login</a></li> <!-- ✅ link to PHP login -->
+        <li><a href="register.php">Register</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <!-- ✅ Point directly to your local PHP script -->
-    <form action="../php/register.php" method="POST">
-
-      <label for="username">Username:</label><br>
-      <input type="text" id="username" name="username" required><br><br>
-
+    <!-- ✅ Points to backend handler -->
+    <form action="php/login.php" method="POST">
       <label for="email">Email:</label><br>
       <input type="email" id="email" name="email" required><br><br>
 
       <label for="password">Password:</label><br>
       <input type="password" id="password" name="password" required><br><br>
 
-      <button type="submit">Register</button>
+      <button type="submit">Login</button>
     </form>
-
-    <div id="register-result"></div>
+    <div id="login-result"></div>
   </main>
 
   <footer>

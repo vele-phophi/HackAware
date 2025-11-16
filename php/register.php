@@ -1,30 +1,34 @@
 <?php
 include 'db_connect.php';
 
-// Get form input
-$username = $_POST['username'];
-$email    = $_POST['email'];
-$password = $_POST['password'];
+// Get form input safely
+$name     = $_POST['username'] ?? '';
+$email    = $_POST['email'] ?? '';
+$password = $_POST['password'] ?? '';
 
-// Hash the password
-$password_hash = password_hash($password, PASSWORD_BCRYPT);
+if ($name && $email && $password) {
+    try {
+        // Check if email already exists
+        $check = $db->prepare("SELECT id FROM users WHERE email = ?");
+        $check->execute([$email]);
 
-// Check if email already exists
-$check_query = "SELECT id FROM users WHERE email = $1";
-$check_result = pg_query_params($conn, $check_query, array($email));
+        if ($check->fetch()) {
+            echo "❌ Email already registered";
+            exit();
+        }
 
-if (pg_num_rows($check_result) > 0) {
-    echo "❌ Email already registered";
-    exit();
-}
+        // Hash the password securely
+        $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-// Insert new user
-$insert_query = "INSERT INTO users (username, email, password_hash, created_at) VALUES ($1, $2, $3, CURRENT_TIMESTAMP)";
-$insert_result = pg_query_params($conn, $insert_query, array($username, $email, $password_hash));
+        // Insert new user (default role = learner)
+        $insert = $db->prepare("INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, 'learner')");
+        $insert->execute([$name, $email, $password_hash]);
 
-if ($insert_result) {
-    echo "Registration successful. You can now log in.";
+        echo "✅ Registration successful. You can now log in.";
+    } catch (Exception $e) {
+        echo "❌ Registration failed: " . $e->getMessage();
+    }
 } else {
-    echo "❌ Registration failed: " . pg_last_error($conn);
+    echo "❌ Please fill in all fields.";
 }
 ?>

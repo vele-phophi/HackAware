@@ -1,12 +1,12 @@
 # Use official PHP image with Apache
 FROM php:8.2-apache
 
-# Install required system packages for PostgreSQL
+# Install PostgreSQL client libraries and headers
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     && docker-php-ext-install pgsql
 
-# Copy your project files into the container
+# Copy project files into container
 COPY . /var/www/html/
 
 # Set working directory

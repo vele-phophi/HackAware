@@ -11,15 +11,14 @@
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="login.php">Login</a></li> <!-- ✅ link to PHP login -->
+        <li><a href="login.php">Login</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <!-- ✅ Point directly to your local PHP script -->
-    <form action="../php/register.php" method="POST">
-
+    <!-- ✅ Points to backend handler -->
+    <form action="php/register.php" method="POST">
       <label for="username">Username:</label><br>
       <input type="text" id="username" name="username" required><br><br>
 
@@ -31,7 +30,6 @@
 
       <button type="submit">Register</button>
     </form>
-
     <div id="register-result"></div>
   </main>
 

@@ -1,7 +1,13 @@
 <?php
 session_start();
-include '../php/db_connect.php';
 
+// Unset all session variables
+$_SESSION = [];
+
+// Destroy the session
 session_destroy();
-header("Location: login.html");
+
+// Redirect to login page
+header("Location: login.php"); // use login.php if that’s your actual script
 exit;
+?>

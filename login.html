@@ -11,16 +11,14 @@
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="register.html">Register</a></li>
+        <li><a href="register.php">Register</a></li> <!-- ✅ link to PHP register -->
       </ul>
     </nav>
   </header>
 
   <main>
-    
-  <form action="https://hackaware-1.onrender.com/php/login.php" method="POST">
-
-
+    <!-- ✅ Point directly to your local PHP script -->
+    <form action="../php/login.php" method="POST">
 
       <label for="email">Email:</label><br>
       <input type="email" id="email" name="email" required><br><br>
@@ -37,7 +35,5 @@
   <footer>
     <p>&copy; 2025 TechTitans | HackAware for Nemisa Hackathon</p>
   </footer>
-
-  
 </body>
 </html>
